@@ -1,0 +1,11 @@
+' State derivation from feedback.
+If Me.Faulted == True Then
+    Me.State = 3;
+    Me.StateText = "Faulted";
+ElseIf Me.MotorFeedback == True Then
+    Me.State = 2;
+    Me.StateText = "Running";
+Else
+    Me.State = 1;
+    Me.StateText = "Stopped";
+EndIf;

@@ -1,0 +1,20 @@
+' Template-level motor command script.
+Dim canStart as Boolean;
+canStart = False;
+
+If Me.AutoMode == True AND Me.PermissiveOK == True AND Me.InterlockActive == False Then
+    canStart = True;
+EndIf;
+
+If Me.CmdStop == True Then
+    Me.RunRequest = False;
+    Me.StatusText = "Stop command accepted";
+ElseIf Me.CmdStart == True Then
+    If canStart == True Then
+        Me.RunRequest = True;
+        Me.StatusText = "Start accepted";
+    Else
+        Me.RunRequest = False;
+        Me.StatusText = "Start rejected: permissive/interlock condition not met";
+    EndIf;
+EndIf;

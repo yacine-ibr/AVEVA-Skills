@@ -1,0 +1,11 @@
+' Analog alarm evaluation script.
+If Me.PV >= Me.HHLimit Then
+    Me.AlarmHH = True;
+    Me.AlarmH = False;
+ElseIf Me.PV >= Me.HLimit Then
+    Me.AlarmHH = False;
+    Me.AlarmH = True;
+Else
+    Me.AlarmHH = False;
+    Me.AlarmH = False;
+EndIf;
