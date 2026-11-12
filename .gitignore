@@ -1,0 +1,4 @@
+# Generated skill ZIP and local Python bytecode
+dist/
+__pycache__/
+*.pyc

@@ -1,0 +1,27 @@
+name: Validate AVEVA skill package
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Validate skill structure and relative links
+        run: python3 scripts/validate-skill.py
+      - name: Package skill for Claude chat
+        run: python3 scripts/package-skill.py
+      - name: Verify ZIP integrity
+        run: python3 -m zipfile -t dist/aveva-system-platform.zip
+      - name: Check ZIP contains SKILL.md
+        run: |
+          python3 - <<'PY'
+          from zipfile import ZipFile
+          with ZipFile("dist/aveva-system-platform.zip") as z:
+              assert "aveva-system-platform/SKILL.md" in z.namelist()
+          PY
