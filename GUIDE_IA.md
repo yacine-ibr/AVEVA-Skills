@@ -57,7 +57,7 @@ Selon l'interface/plan, le support des skills varie. Voir [GitHub Copilot Agent 
 
 Lorsque les **compétences personnalisées** sont disponibles :
 
-1. Dans ce dépôt cloné, exécuter `python scripts/package-skill.py`. Le résultat est `dist/aveva-system-platform.zip`.
+1. **Sans Python ni clone :** ouvrir les [exécutions de validation GitHub](https://github.com/yacine-ibr/AVEVA-Skills/actions/workflows/validate-skill.yml), sélectionner la dernière exécution réussie, puis télécharger l'artefact `aveva-system-platform-skill-zip` dans la section **Artifacts**. Extraire le ZIP de l'artefact pour récupérer `aveva-system-platform.zip`. **Alternative locale :** dans ce dépôt cloné, exécuter `python scripts/package-skill.py` pour créer `dist/aveva-system-platform.zip`.
 2. Dans Claude, activer l'exécution de code/création de fichiers si nécessaire, puis aller dans **Personnaliser > Compétences**.
 3. Ajouter/importer une compétence depuis le ZIP (dossier racine `aveva-system-platform/` avec `SKILL.md`).
 4. Activer la compétence et tester : « Applique le skill aveva-system-platform à cette revue de code ».

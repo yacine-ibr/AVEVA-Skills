@@ -25,3 +25,10 @@ jobs:
           with ZipFile("dist/aveva-system-platform.zip") as z:
               assert "aveva-system-platform/SKILL.md" in z.namelist()
           PY
+      - name: Publish downloadable Claude skill ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: aveva-system-platform-skill-zip
+          path: dist/aveva-system-platform.zip
+          if-no-files-found: error
+          retention-days: 30

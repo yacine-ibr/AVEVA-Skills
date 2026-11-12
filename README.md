@@ -67,6 +67,8 @@ python scripts/install-skill.py --agent copilot --scope user
 python scripts/package-skill.py
 ```
 
+Pour obtenir le ZIP **sans installer Python**, le workflow GitHub [Validate AVEVA skill package](https://github.com/yacine-ibr/AVEVA-Skills/actions/workflows/validate-skill.yml) publie un artefact téléchargeable pendant 30 jours. Ouvrir la dernière exécution réussie, télécharger l'artefact, puis en extraire `aveva-system-platform.zip`.
+
 Les scripts d'installation ne requièrent aucun accès réseau et copient uniquement le dossier public `aveva-system-platform/`. Par défaut, une installation existante n'est **pas écrasée**. Utiliser `--help` pour les options et l'installation par projet.
 
 ## Relation avec une bibliothèque documentaire privée
